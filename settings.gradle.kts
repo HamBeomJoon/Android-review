@@ -21,3 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "review"
 include(":app")
+include(":feature:activity")
+include(":feature:intent")
