@@ -74,7 +74,7 @@ fun HomeScreen(
             onClick = onActivityClick,
             modifier = Modifier.fillMaxWidth(),
         ) {
-            Text("feature:activity 모듈")
+            Text("activity 학습")
         }
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -83,7 +83,7 @@ fun HomeScreen(
             onClick = onIntentClick,
             modifier = Modifier.fillMaxWidth(),
         ) {
-            Text("feature:intent 모듈")
+            Text("intent 학습")
         }
     }
 }

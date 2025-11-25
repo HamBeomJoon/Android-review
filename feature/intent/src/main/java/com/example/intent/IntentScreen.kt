@@ -10,7 +10,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.Divider
+import androidx.compose.material3.DividerDefaults
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
@@ -43,9 +44,8 @@ fun IntentScreen() {
             style = MaterialTheme.typography.headlineSmall,
         )
 
-        Divider()
+        HorizontalDivider(Modifier, DividerDefaults.Thickness, DividerDefaults.color)
 
-        // 📌 1. 명시적 Intent (Explicit Intent)
         Card(
             modifier = Modifier.fillMaxWidth(),
             colors =
@@ -82,7 +82,6 @@ fun IntentScreen() {
             }
         }
 
-        // 📌 2. 암시적 Intent (Implicit Intent)
         Card(
             modifier = Modifier.fillMaxWidth(),
             colors =

@@ -1,2 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+        <!-- Lifecycle 학습용 -->
+        <activity
+            android:name=".lifecycle.LifecycleActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".lifecycle.LifecycleSecondActivity"
+            android:exported="false" />
+
+        <!-- LaunchMode 학습용 -->
+        <!--        <activity-->
+        <!--            android:name=".LaunchModeActivity"-->
+        <!--            android:exported="false"-->
+        <!--            android:launchMode="singleTop" />-->
+    </application>
+
+</manifest>
