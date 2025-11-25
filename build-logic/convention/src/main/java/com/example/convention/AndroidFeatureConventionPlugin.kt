@@ -1,16 +1,15 @@
 import com.android.build.gradle.LibraryExtension
+import com.example.convention.libs
 import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.gradle.api.artifacts.VersionCatalogsExtension
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.dependencies
-import org.gradle.kotlin.dsl.getByType
 
 class AndroidFeatureConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
-            val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
+            val libs = this.libs
 
             with(pluginManager) {
                 apply("com.android.library")
@@ -23,7 +22,6 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
 
                 defaultConfig {
                     minSdk = 24
-                    targetSdk = 35
                 }
 
                 compileOptions {
@@ -34,29 +32,24 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
                 buildFeatures {
                     compose = true
                 }
-
-                // Compose 옵션 명시 (Kotlin 2.0+에서는 자동 설정되지만 명시)
-                composeOptions {
-                    kotlinCompilerExtensionVersion = "1.5.15"
-                }
             }
 
             dependencies {
                 // AndroidX Core
-                add("implementation", "androidx.core:core-ktx:1.17.0")
-                add("implementation", "androidx.lifecycle:lifecycle-runtime-ktx:2.10.0")
+                add("implementation", libs.findLibrary("androidx.core.ktx").get())
+                add("implementation", libs.findLibrary("androidx.lifecycle.runtime.ktx").get())
+                add("implementation", libs.findLibrary("androidx.activity.compose").get())
 
-                // Compose (버전 명시)
-                add("implementation", "androidx.activity:activity-compose:1.12.0")
-                add("implementation", platform("androidx.compose:compose-bom:2024.12.01"))
-                add("implementation", "androidx.compose.ui:ui")
-                add("implementation", "androidx.compose.ui:ui-graphics")
-                add("implementation", "androidx.compose.ui:ui-tooling-preview")
-                add("implementation", "androidx.compose.material3:material3")
+                // Compose BOM
+                add("implementation", platform(libs.findLibrary("androidx.compose.bom").get()))
+                add("implementation", libs.findLibrary("androidx.ui").get())
+                add("implementation", libs.findLibrary("androidx.ui.graphics").get())
+                add("implementation", libs.findLibrary("androidx.ui.tooling.preview").get())
+                add("implementation", libs.findLibrary("androidx.material3").get())
 
                 // Debug
-                add("debugImplementation", "androidx.compose.ui:ui-tooling")
-                add("debugImplementation", "androidx.compose.ui:ui-test-manifest")
+                add("debugImplementation", libs.findLibrary("androidx.ui.tooling").get())
+                add("debugImplementation", libs.findLibrary("androidx.ui.test.manifest").get())
             }
         }
     }
