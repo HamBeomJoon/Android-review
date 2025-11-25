@@ -40,7 +40,7 @@ fun IntentScreen() {
     ) {
         Text(
             text = "Intent 학습",
-            style = MaterialTheme.typography.headlineLarge,
+            style = MaterialTheme.typography.headlineSmall,
         )
 
         Divider()
@@ -58,7 +58,7 @@ fun IntentScreen() {
                 verticalArrangement = Arrangement.spacedBy(8.dp),
             ) {
                 Text(
-                    text = "1️⃣ 명시적 Intent (Explicit)",
+                    text = "1. 명시적 Intent (Explicit)",
                     style = MaterialTheme.typography.titleMedium,
                 )
                 Text(
@@ -95,7 +95,7 @@ fun IntentScreen() {
                 verticalArrangement = Arrangement.spacedBy(8.dp),
             ) {
                 Text(
-                    text = "2️⃣ 암시적 Intent (Implicit)",
+                    text = "2. 암시적 Intent (Implicit)",
                     style = MaterialTheme.typography.titleMedium,
                 )
                 Text(
@@ -107,7 +107,6 @@ fun IntentScreen() {
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.spacedBy(8.dp),
                 ) {
-                    // 웹 브라우저 열기
                     OutlinedButton(
                         onClick = {
                             val intent =
@@ -121,7 +120,6 @@ fun IntentScreen() {
                         Text("🌐 웹")
                     }
 
-                    // 전화 걸기
                     OutlinedButton(
                         onClick = {
                             val intent =
@@ -140,7 +138,6 @@ fun IntentScreen() {
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.spacedBy(8.dp),
                 ) {
-                    // 이메일 보내기
                     OutlinedButton(
                         onClick = {
                             val intent =
@@ -156,7 +153,6 @@ fun IntentScreen() {
                         Text("✉️ 메일")
                     }
 
-                    // 공유하기
                     OutlinedButton(
                         onClick = {
                             val intent =
@@ -174,12 +170,11 @@ fun IntentScreen() {
             }
         }
 
-        // 📌 3. Intent Flags
         Card(
             modifier = Modifier.fillMaxWidth(),
             colors =
                 CardDefaults.cardColors(
-                    containerColor = MaterialTheme.colorScheme.tertiaryContainer,
+                    containerColor = MaterialTheme.colorScheme.surfaceVariant,
                 ),
         ) {
             Column(
@@ -187,44 +182,31 @@ fun IntentScreen() {
                 verticalArrangement = Arrangement.spacedBy(8.dp),
             ) {
                 Text(
-                    text = "3️⃣ Intent Flags",
+                    text = "3. 이미지 공유받기",
                     style = MaterialTheme.typography.titleMedium,
                 )
                 Text(
-                    text = "Activity 스택 관리",
+                    text = "브라우저에서 이미지 공유 시 이 앱으로 받기",
                     style = MaterialTheme.typography.bodySmall,
                 )
 
                 Button(
                     onClick = {
                         val intent =
-                            Intent(context, SecondActivity::class.java).apply {
-                                flags =
-                                    Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+                            Intent(context, ImageReceiveActivity::class.java).apply {
+                                action = Intent.ACTION_SEND
+                                putExtra(
+                                    Intent.EXTRA_STREAM,
+                                    "https://images.unsplash.com/photo-1493612276216-ee3925520721?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmFuZG9tfGVufDB8fDB8fHww"
+                                        .toUri(),
+                                )
                             }
                         context.startActivity(intent)
                     },
                     modifier = Modifier.fillMaxWidth(),
                 ) {
-                    Text("NEW_TASK + CLEAR_TOP")
+                    Text("이미지 공유 테스트")
                 }
-            }
-        }
-
-        // 결과 표시
-        if (resultText.isNotEmpty()) {
-            Card(
-                modifier = Modifier.fillMaxWidth(),
-                colors =
-                    CardDefaults.cardColors(
-                        containerColor = MaterialTheme.colorScheme.surfaceVariant,
-                    ),
-            ) {
-                Text(
-                    text = resultText,
-                    modifier = Modifier.padding(16.dp),
-                    style = MaterialTheme.typography.bodyMedium,
-                )
             }
         }
     }

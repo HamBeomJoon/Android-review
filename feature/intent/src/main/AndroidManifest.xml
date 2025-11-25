@@ -1,4 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application>
+        <activity
+            android:name=".SecondActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ImageReceiveActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <!-- 이미지 타입만 받기 -->
+                <data android:mimeType="image/*" />
+            </intent-filter>
+        </activity>
+    </application>
+
 </manifest>
