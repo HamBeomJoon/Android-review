@@ -16,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import com.example.activity.launchmode.LaunchModeActivity
 import com.example.activity.lifecycle.LifecycleActivity
 
 @Composable
@@ -64,8 +65,8 @@ fun ActivityScreen() {
         Card(
             modifier = Modifier.fillMaxWidth(),
             onClick = {
-//                val intent = Intent(context, LaunchModeActivity::class.java)
-//                context.startActivity(intent)
+                val intent = Intent(context, LaunchModeActivity::class.java)
+                context.startActivity(intent)
             },
         ) {
             Column(

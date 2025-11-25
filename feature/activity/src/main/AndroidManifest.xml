@@ -11,11 +11,25 @@
             android:name=".lifecycle.LifecycleSecondActivity"
             android:exported="false" />
 
-        <!-- LaunchMode 학습용 -->
-        <!--        <activity-->
-        <!--            android:name=".LaunchModeActivity"-->
-        <!--            android:exported="false"-->
-        <!--            android:launchMode="singleTop" />-->
+        <activity
+            android:name=".launchmode.LaunchModeActivity"
+            android:exported="false"
+            android:launchMode="singleTop" />
+
+        <activity
+            android:name=".launchmode.StandardActivity"
+            android:exported="false"
+            android:launchMode="standard" />
+
+        <activity
+            android:name=".launchmode.SingleTopActivity"
+            android:exported="false"
+            android:launchMode="singleTop" />
+
+        <activity
+            android:name=".launchmode.SingleTaskActivity"
+            android:exported="false"
+            android:launchMode="singleTask" />
     </application>
 
 </manifest>
