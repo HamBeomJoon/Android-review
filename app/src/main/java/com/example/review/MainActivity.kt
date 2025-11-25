@@ -20,6 +20,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.activity.ActivityScreen
+import com.example.intent.IntentScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,9 +52,9 @@ fun AppNavigation() {
             ActivityScreen() // feature:activity 모듈
         }
 
-//        composable("intent") {
-//            IntentScreen() // feature:intent 모듈
-//        }
+        composable("intent") {
+            IntentScreen() // feature:intent 모듈
+        }
     }
 }
 
