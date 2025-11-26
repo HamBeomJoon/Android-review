@@ -2,4 +2,4 @@
 
 dependency graph
 ----
-<img width="526" height="329" alt="스크린샷 2025-11-26 18 51 51" src="https://github.com/user-attachments/assets/be8f1c30-9fb8-4477-bd9c-e7dc4f809327" />
+<img width="613" height="350" alt="스크린샷 2025-11-26 19 50 48" src="https://github.com/user-attachments/assets/edc0de3c-1118-44ac-b266-d87bfdaa78e0" />
