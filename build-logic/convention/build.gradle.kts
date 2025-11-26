@@ -12,9 +12,17 @@ dependencies {
 
 gradlePlugin {
     plugins {
+        register("androidApplication") {
+            id = "practice.android.application"
+            implementationClass = "AndroidApplicationConventionPlugin"
+        }
         register("androidFeature") {
             id = "practice.android.feature"
             implementationClass = "AndroidFeatureConventionPlugin"
+        }
+        register("androidHilt") {
+            id = "practice.android.hilt"
+            implementationClass = "HiltConventionPlugin"
         }
     }
 }
