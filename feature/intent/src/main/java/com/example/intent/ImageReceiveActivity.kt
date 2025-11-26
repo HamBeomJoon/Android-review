@@ -5,7 +5,6 @@ import android.net.Uri
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -13,19 +12,16 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
-import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
-import coil.compose.AsyncImage
 import com.example.designsystem.theme.ReviewTheme
+import com.example.ui.EmptyStateScreen
+import com.example.ui.ImageDisplayCard
+import com.example.ui.ScreenScaffold
 
 class ImageReceiveActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,42 +56,24 @@ fun ImageReceiveScreen(
     imageUri: Uri?,
     onBackClick: () -> Unit,
 ) {
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = { Text("이미지 공유받기") },
-            )
-        },
+    ScreenScaffold(
+        title = "이미지 공유받기",
+        onBackClick = onBackClick,
     ) { padding ->
-        Column(
-            modifier =
-                Modifier
-                    .fillMaxSize()
-                    .padding(padding)
-                    .padding(16.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center,
-        ) {
-            if (imageUri != null) {
-                Card(
-                    modifier =
-                        Modifier
-                            .fillMaxWidth()
-                            .weight(1f),
-                ) {
-                    AsyncImage(
-                        model = imageUri,
-                        contentDescription = "공유받은 이미지",
-                        modifier = Modifier.fillMaxSize(),
-                        contentScale = ContentScale.Fit,
-                    )
-                }
-
-                Spacer(modifier = Modifier.height(16.dp))
-
-                Text(
-                    text = "URI: $imageUri",
-                    style = MaterialTheme.typography.bodySmall,
+        if (imageUri != null) {
+            Column(
+                modifier =
+                    Modifier
+                        .fillMaxSize()
+                        .padding(padding)
+                        .padding(16.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                ImageDisplayCard(
+                    imageUri = imageUri,
+                    description = "공유받은 이미지",
+                    showUri = true,
+                    modifier = Modifier.weight(1f),
                 )
 
                 Spacer(modifier = Modifier.height(16.dp))
@@ -106,18 +84,16 @@ fun ImageReceiveScreen(
                 ) {
                     Text("닫기")
                 }
-            } else {
-                Text(
-                    text = "이미지가 없습니다",
-                    style = MaterialTheme.typography.bodyLarge,
-                )
-
-                Spacer(modifier = Modifier.height(16.dp))
-
-                Button(onClick = onBackClick) {
-                    Text("닫기")
-                }
             }
+        } else {
+            EmptyStateScreen(
+                emoji = "🖼️",
+                title = "이미지가 없습니다",
+                description = "공유된 이미지를 찾을 수 없습니다",
+                actionText = "닫기",
+                onActionClick = onBackClick,
+                modifier = Modifier.padding(padding),
+            )
         }
     }
 }

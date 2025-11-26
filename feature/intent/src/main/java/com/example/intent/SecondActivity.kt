@@ -11,18 +11,15 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
-import androidx.compose.material3.Card
-import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.designsystem.theme.ReviewTheme
+import com.example.ui.DataDisplayCard
+import com.example.ui.ScreenScaffold
 
 class SecondActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,12 +48,9 @@ fun SecondScreen(
     number: Int,
     onBackClick: () -> Unit,
 ) {
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = { Text("Second Activity") },
-            )
-        },
+    ScreenScaffold(
+        title = "Second Activity",
+        onBackClick = onBackClick,
     ) { padding ->
         Column(
             modifier =
@@ -67,31 +61,14 @@ fun SecondScreen(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center,
         ) {
-            Card(
-                modifier = Modifier.fillMaxWidth(),
-            ) {
-                Column(
-                    modifier = Modifier.padding(16.dp),
-                    verticalArrangement = Arrangement.spacedBy(8.dp),
-                ) {
-                    Text(
-                        text = "전달받은 데이터",
-                        style = MaterialTheme.typography.titleMedium,
-                    )
-
-                    Divider()
-
-                    Text(
-                        text = "메시지: $message",
-                        style = MaterialTheme.typography.bodyLarge,
-                    )
-
-                    Text(
-                        text = "숫자: $number",
-                        style = MaterialTheme.typography.bodyLarge,
-                    )
-                }
-            }
+            DataDisplayCard(
+                title = "전달받은 데이터",
+                data =
+                    mapOf(
+                        "메시지" to message,
+                        "숫자" to number.toString(),
+                    ),
+            )
 
             Spacer(modifier = Modifier.height(24.dp))
 

@@ -7,6 +7,6 @@ android {
 }
 
 dependencies {
-    implementation("io.coil-kt:coil-compose:2.5.0")
     implementation(project(":core:designsystem"))
+    implementation(project(":core:ui"))
 }
