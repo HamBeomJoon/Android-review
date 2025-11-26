@@ -11,23 +11,15 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.example.designsystem.theme.ReviewTheme
+import com.example.ui.InfoCard
+import com.example.ui.ScreenScaffold
 
 class LifecycleActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,7 +27,9 @@ class LifecycleActivity : ComponentActivity() {
         Log.d(TAG, "📗 onCreate 호출")
         setContent {
             ReviewTheme {
-                LifecycleScreen()
+                LifecycleScreen(
+                    onBackClick = { finish() },
+                )
             }
         }
     }
@@ -75,18 +69,13 @@ class LifecycleActivity : ComponentActivity() {
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LifecycleScreen() {
+fun LifecycleScreen(onBackClick: () -> Unit) {
     val context = LocalContext.current
-    var logHistory by remember { mutableStateOf("Logcat을 확인하세요!") }
 
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = { Text("Lifecycle 학습") },
-            )
-        },
+    ScreenScaffold(
+        title = "Lifecycle 학습",
+        onBackClick = onBackClick,
     ) { padding ->
         Column(
             modifier =
@@ -97,35 +86,18 @@ fun LifecycleScreen() {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
-            Card(
-                modifier = Modifier.fillMaxWidth(),
-                colors =
-                    CardDefaults.cardColors(
-                        containerColor = MaterialTheme.colorScheme.primaryContainer,
-                    ),
-            ) {
-                Column(
-                    modifier = Modifier.padding(16.dp),
-                    verticalArrangement = Arrangement.spacedBy(8.dp),
-                ) {
-                    Text(
-                        text = "Activity Lifecycle",
-                        style = MaterialTheme.typography.titleLarge,
-                    )
-                    Text(
-                        text =
-                            """
-                            📗 onCreate → 📘 onStart → 📙 onResume
-                            (Activity 실행 중)
-                            📕 onPause → 📔 onStop → 📓 onDestroy
-                            
-                            백그라운드에서 복귀:
-                            📒 onRestart → 📘 onStart → 📙 onResume
-                            """.trimIndent(),
-                        style = MaterialTheme.typography.bodyMedium,
-                    )
-                }
-            }
+            InfoCard(
+                title = "Activity Lifecycle",
+                content =
+                    """
+                    📗 onCreate → 📘 onStart → 📙 onResume
+                    (Activity 실행 중)
+                    📕 onPause → 📔 onStop → 📓 onDestroy
+                    
+                    백그라운드에서 복귀:
+                    📒 onRestart → 📘 onStart → 📙 onResume
+                    """.trimIndent(),
+            )
 
             Button(
                 onClick = {
