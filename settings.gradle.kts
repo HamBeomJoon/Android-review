@@ -26,3 +26,8 @@ rootProject.name = "review"
 include(":app")
 include(":feature:activity")
 include(":feature:intent")
+include(":core:common")
+include(":core:ui")
+include(":core:network")
+include(":core:data")
+include(":core:designsystem")
