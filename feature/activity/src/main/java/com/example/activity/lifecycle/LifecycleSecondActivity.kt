@@ -20,14 +20,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.example.designsystem.theme.ReviewTheme
 
 class LifecycleSecondActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d(TAG, "📗 onCreate 호출")
-
         setContent {
-            MaterialTheme {
+            ReviewTheme {
                 SecondLifecycleScreen(
                     onBackClick = { finish() },
                 )

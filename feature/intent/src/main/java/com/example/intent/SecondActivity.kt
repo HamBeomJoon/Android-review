@@ -22,6 +22,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.example.designsystem.theme.ReviewTheme
 
 class SecondActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,7 +33,7 @@ class SecondActivity : ComponentActivity() {
         val number = intent.getIntExtra("number", 0)
 
         setContent {
-            MaterialTheme {
+            ReviewTheme {
                 SecondScreen(
                     message = message,
                     number = number,

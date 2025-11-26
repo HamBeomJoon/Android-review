@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.material3.MaterialTheme
+import com.example.designsystem.theme.ReviewTheme
 
 class SingleTaskActivity : ComponentActivity() {
     private val instanceId = ++instanceCount
@@ -15,7 +15,7 @@ class SingleTaskActivity : ComponentActivity() {
         Log.d(TAG, "✅ onCreate - Instance #$instanceId")
 
         setContent {
-            MaterialTheme {
+            ReviewTheme {
                 ModeTestScreen(
                     title = "SingleTask Mode",
                     instanceId = instanceId,

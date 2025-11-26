@@ -25,6 +25,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
+import com.example.designsystem.theme.ReviewTheme
 
 class ImageReceiveActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,11 +38,13 @@ class ImageReceiveActivity : ComponentActivity() {
                     intent.getParcelableExtra<Uri>(Intent.EXTRA_STREAM)
                 }
 
-                else -> null
+                else -> {
+                    null
+                }
             }
 
         setContent {
-            MaterialTheme {
+            ReviewTheme {
                 ImageReceiveScreen(
                     imageUri = imageUri,
                     onBackClick = { finish() },

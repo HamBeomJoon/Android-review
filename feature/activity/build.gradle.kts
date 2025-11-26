@@ -5,3 +5,7 @@ plugins {
 android {
     namespace = "com.example.activity"
 }
+
+dependencies {
+    implementation(project(":core:designsystem"))
+}

@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.material3.MaterialTheme
+import com.example.designsystem.theme.ReviewTheme
 
 class StandardActivity : ComponentActivity() {
     private val instanceId = ++instanceCount
@@ -15,7 +15,7 @@ class StandardActivity : ComponentActivity() {
         Log.d(TAG, "✅ onCreate - Instance #$instanceId (항상 새로 생성됨)")
 
         setContent {
-            MaterialTheme {
+            ReviewTheme {
                 ModeTestScreen(
                     title = "Standard Mode",
                     instanceId = instanceId,

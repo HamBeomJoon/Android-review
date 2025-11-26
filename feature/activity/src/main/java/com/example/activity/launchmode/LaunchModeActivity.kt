@@ -23,6 +23,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import com.example.designsystem.theme.ReviewTheme
 
 class LaunchModeActivity : ComponentActivity() {
     private var instanceId: Int = 0
@@ -33,7 +34,7 @@ class LaunchModeActivity : ComponentActivity() {
         Log.d(TAG, "🔷 onCreate - Instance #$instanceId")
 
         setContent {
-            MaterialTheme {
+            ReviewTheme {
                 LaunchModeScreen(instanceId = instanceId)
             }
         }
@@ -81,7 +82,7 @@ fun LaunchModeScreen(instanceId: Int) {
                 modifier = Modifier.fillMaxWidth(),
                 colors =
                     CardDefaults.cardColors(
-                        containerColor = MaterialTheme.colorScheme.primaryContainer,
+                        containerColor = MaterialTheme.colorScheme.tertiaryContainer,
                     ),
             ) {
                 Column(
@@ -90,6 +91,7 @@ fun LaunchModeScreen(instanceId: Int) {
                     Text(
                         text = "현재 인스턴스",
                         style = MaterialTheme.typography.titleMedium,
+                        color = MaterialTheme.colorScheme.onPrimaryContainer,
                     )
                     Text(
                         text = "# $instanceId",
@@ -104,7 +106,7 @@ fun LaunchModeScreen(instanceId: Int) {
                 modifier = Modifier.fillMaxWidth(),
                 colors =
                     CardDefaults.cardColors(
-                        containerColor = MaterialTheme.colorScheme.secondaryContainer,
+                        containerColor = MaterialTheme.colorScheme.errorContainer,
                     ),
             ) {
                 Column(
@@ -137,7 +139,7 @@ fun LaunchModeScreen(instanceId: Int) {
                 modifier = Modifier.fillMaxWidth(),
                 colors =
                     CardDefaults.cardColors(
-                        containerColor = MaterialTheme.colorScheme.tertiaryContainer,
+                        containerColor = MaterialTheme.colorScheme.errorContainer,
                     ),
             ) {
                 Column(

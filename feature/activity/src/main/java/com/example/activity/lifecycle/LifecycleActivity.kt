@@ -27,14 +27,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import com.example.designsystem.theme.ReviewTheme
 
 class LifecycleActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d(TAG, "📗 onCreate 호출")
-
         setContent {
-            MaterialTheme {
+            ReviewTheme {
                 LifecycleScreen()
             }
         }
