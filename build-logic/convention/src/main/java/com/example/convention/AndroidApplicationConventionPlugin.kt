@@ -18,11 +18,11 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
             }
 
             extensions.configure<ApplicationExtension> {
-                compileSdk = 35
+                compileSdk = 36
 
                 defaultConfig {
                     minSdk = 29
-                    targetSdk = 35
+                    targetSdk = 36
                     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
                 }
 
@@ -60,7 +60,7 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
                 add("implementation", libs.findLibrary("androidx.material3").get())
 
                 // Navigation
-                add("implementation", libs.findLibrary("androidx.navigation.compose").get())
+                add("implementation", libs.findLibrary("androidx-navigation-compose").get())
 
                 // Test
                 add("testImplementation", libs.findLibrary("junit").get())

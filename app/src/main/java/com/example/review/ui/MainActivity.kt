@@ -1,4 +1,4 @@
-package com.example.review
+package com.example.review.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -21,7 +21,9 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.activity.ActivityScreen
 import com.example.intent.IntentScreen
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
