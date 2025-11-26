@@ -16,4 +16,5 @@ android {
 dependencies {
     implementation(project(":feature:activity"))
     implementation(project(":feature:intent"))
+    implementation(project(":feature:context"))
 }

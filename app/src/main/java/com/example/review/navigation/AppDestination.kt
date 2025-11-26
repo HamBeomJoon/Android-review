@@ -8,4 +8,6 @@ sealed class AppDestination(
     data object ActivityLearning : AppDestination("activity")
 
     data object IntentLearning : AppDestination("intent")
+
+    data object ContextLearning : AppDestination("context/home")
 }

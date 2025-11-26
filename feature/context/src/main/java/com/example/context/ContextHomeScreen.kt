@@ -1,54 +1,50 @@
-package com.example.review.home
+package com.example.context
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 
 @Composable
-fun HomeScreen(
-    onActivityClick: () -> Unit,
-    onIntentClick: () -> Unit,
-    onContextClick: () -> Unit,
-) {
+fun ContextHomeScreen(navController: NavController) {
     Column(
         modifier =
             Modifier
                 .fillMaxSize()
                 .padding(16.dp),
-        verticalArrangement = Arrangement.Center,
+        verticalArrangement = Arrangement.spacedBy(16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
+        Text("Context 학습", style = MaterialTheme.typography.headlineMedium)
+
         Button(
-            onClick = onActivityClick,
+            onClick = { navController.navigate("context/system_service") },
             modifier = Modifier.fillMaxWidth(),
         ) {
-            Text("activity 학습")
+            Text("1. SystemService 실습")
         }
 
-        Spacer(modifier = Modifier.height(16.dp))
-
         Button(
-            onClick = onIntentClick,
+            onClick = { navController.navigate("context/resource_access") },
             modifier = Modifier.fillMaxWidth(),
         ) {
-            Text("intent 학습")
+            Text("2. Resource 접근 실습")
         }
 
-        Spacer(modifier = Modifier.height(16.dp))
-
         Button(
-            onClick = onContextClick,
+            onClick = { navController.navigate("context/storage") },
             modifier = Modifier.fillMaxWidth(),
         ) {
-            Text("context 학습")
+            Text("3. Storage(DataStore/SharedPreferences) 실습")
         }
     }
 }

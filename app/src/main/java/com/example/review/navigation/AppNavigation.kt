@@ -5,6 +5,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.activity.ActivityScreen
+import com.example.context.navigation.contextGraph
 import com.example.intent.IntentScreen
 import com.example.review.home.HomeScreen
 
@@ -20,6 +21,7 @@ fun AppNavigation() {
             HomeScreen(
                 onActivityClick = { navController.navigate(AppDestination.ActivityLearning.route) },
                 onIntentClick = { navController.navigate(AppDestination.IntentLearning.route) },
+                onContextClick = { navController.navigate(AppDestination.ContextLearning.route) },
             )
         }
 
@@ -30,5 +32,7 @@ fun AppNavigation() {
         composable(AppDestination.IntentLearning.route) {
             IntentScreen() // feature:intent 모듈
         }
+
+        contextGraph(navController) // feature:context 모듈
     }
 }
