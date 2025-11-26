@@ -5,9 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.*
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.material3.MaterialTheme
 
 class StandardActivity : ComponentActivity() {
     private val instanceId = ++instanceCount
@@ -23,7 +21,6 @@ class StandardActivity : ComponentActivity() {
                     instanceId = instanceId,
                     description = "버튼을 누를 때마다 새 인스턴스가 생성됩니다",
                     onSameActivityClick = {
-                        // 자기 자신 호출
                         val intent = Intent(this, StandardActivity::class.java)
                         startActivity(intent)
                     },
