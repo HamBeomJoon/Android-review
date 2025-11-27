@@ -24,5 +24,9 @@ gradlePlugin {
             id = "practice.android.hilt"
             implementationClass = "HiltConventionPlugin"
         }
+        register("androidLibrary") {
+            id = "practice.android.library"
+            implementationClass = "AndroidLibraryConventionPlugin"
+        }
     }
 }
