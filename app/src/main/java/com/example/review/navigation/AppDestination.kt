@@ -12,4 +12,6 @@ sealed class AppDestination(
     data object ContextLearning : AppDestination("context/home")
 
     data object ParcelableComparison : AppDestination("parcelable_comparison")
+
+    data object DialogLearning : AppDestination("dialog")
 }

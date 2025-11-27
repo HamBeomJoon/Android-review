@@ -6,6 +6,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.activity.ActivityScreen
 import com.example.context.navigation.contextGraph
+import com.example.dialog.DialogScreen
 import com.example.intent.IntentScreen
 import com.example.pacelable.ParcelableComparisonScreen
 import com.example.review.home.HomeScreen
@@ -24,6 +25,7 @@ fun AppNavigation() {
                 onIntentClick = { navController.navigate(AppDestination.IntentLearning.route) },
                 onContextClick = { navController.navigate(AppDestination.ContextLearning.route) },
                 onParcelableClick = { navController.navigate(AppDestination.ParcelableComparison.route) },
+                onDialogClick = { navController.navigate(AppDestination.DialogLearning.route) },
             )
         }
 
@@ -38,7 +40,11 @@ fun AppNavigation() {
         contextGraph(navController) // feature:context 모듈
 
         composable(AppDestination.ParcelableComparison.route) {
-            ParcelableComparisonScreen() // feature:parcelable_comparison 모듈
+            ParcelableComparisonScreen() // feature:parcelable 모듈
+        }
+
+        composable(AppDestination.DialogLearning.route) {
+            DialogScreen() // feature:dialog 모듈
         }
     }
 }
