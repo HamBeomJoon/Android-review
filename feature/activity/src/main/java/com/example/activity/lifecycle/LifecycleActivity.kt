@@ -24,7 +24,7 @@ import com.example.ui.ScreenScaffold
 class LifecycleActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d(TAG, "📗 onCreate 호출")
+        Log.d(TAG, "onCreate 호출")
         setContent {
             ReviewTheme {
                 LifecycleScreen(
@@ -36,32 +36,32 @@ class LifecycleActivity : ComponentActivity() {
 
     override fun onStart() {
         super.onStart()
-        Log.d(TAG, "📘 onStart 호출")
+        Log.d(TAG, "onStart 호출")
     }
 
     override fun onResume() {
         super.onResume()
-        Log.d(TAG, "📙 onResume 호출")
+        Log.d(TAG, "onResume 호출")
     }
 
     override fun onPause() {
         super.onPause()
-        Log.d(TAG, "📕 onPause 호출")
+        Log.d(TAG, "onPause 호출")
     }
 
     override fun onStop() {
         super.onStop()
-        Log.d(TAG, "📔 onStop 호출")
+        Log.d(TAG, "onStop 호출")
     }
 
     override fun onRestart() {
         super.onRestart()
-        Log.d(TAG, "📒 onRestart 호출")
+        Log.d(TAG, "onRestart 호출")
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.d(TAG, "📓 onDestroy 호출")
+        Log.d(TAG, "onDestroy 호출")
     }
 
     companion object {
@@ -90,12 +90,12 @@ fun LifecycleScreen(onBackClick: () -> Unit) {
                 title = "Activity Lifecycle",
                 content =
                     """
-                    📗 onCreate → 📘 onStart → 📙 onResume
+                    onCreate → onStart → onResume
                     (Activity 실행 중)
-                    📕 onPause → 📔 onStop → 📓 onDestroy
+                    onPause → onStop → onDestroy
                     
                     백그라운드에서 복귀:
-                    📒 onRestart → 📘 onStart → 📙 onResume
+                    onRestart → onStart → onResume
                     """.trimIndent(),
             )
 

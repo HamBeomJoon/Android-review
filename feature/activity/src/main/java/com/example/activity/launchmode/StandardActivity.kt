@@ -12,7 +12,7 @@ class StandardActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d(TAG, "✅ onCreate - Instance #$instanceId (항상 새로 생성됨)")
+        Log.d(TAG, "onCreate - Instance #$instanceId (항상 새로 생성됨)")
 
         setContent {
             ReviewTheme {
@@ -31,7 +31,7 @@ class StandardActivity : ComponentActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.d(TAG, "❌ onDestroy - Instance #$instanceId")
+        Log.d(TAG, "onDestroy - Instance #$instanceId")
     }
 
     companion object {

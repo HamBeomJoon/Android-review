@@ -12,7 +12,7 @@ class SingleTaskActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d(TAG, "✅ onCreate - Instance #$instanceId")
+        Log.d(TAG, "onCreate - Instance #$instanceId")
 
         setContent {
             ReviewTheme {
@@ -31,12 +31,12 @@ class SingleTaskActivity : ComponentActivity() {
 
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
-        Log.d(TAG, "🔄 onNewIntent - Instance #$instanceId (위의 Activity들 제거됨)")
+        Log.d(TAG, "onNewIntent - Instance #$instanceId (위의 Activity들 제거됨)")
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.d(TAG, "❌ onDestroy - Instance #$instanceId")
+        Log.d(TAG, "onDestroy - Instance #$instanceId")
     }
 
     companion object {

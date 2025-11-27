@@ -31,7 +31,7 @@ class LaunchModeActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         instanceId = ++instanceCount
-        Log.d(TAG, "🔷 onCreate - Instance #$instanceId")
+        Log.d(TAG, "onCreate - Instance #$instanceId")
 
         setContent {
             ReviewTheme {
@@ -42,12 +42,12 @@ class LaunchModeActivity : ComponentActivity() {
 
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
-        Log.d(TAG, "🔄 onNewIntent - Instance #$instanceId (재사용됨)")
+        Log.d(TAG, "onNewIntent - Instance #$instanceId (재사용됨)")
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.d(TAG, "🔻 onDestroy - Instance #$instanceId")
+        Log.d(TAG, "onDestroy - Instance #$instanceId")
     }
 
     companion object {
@@ -114,7 +114,7 @@ fun LaunchModeScreen(instanceId: Int) {
                     verticalArrangement = Arrangement.spacedBy(8.dp),
                 ) {
                     Text(
-                        text = "📘 standard (기본)",
+                        text = "standard (기본)",
                         style = MaterialTheme.typography.titleMedium,
                     )
                     Text(
@@ -147,7 +147,7 @@ fun LaunchModeScreen(instanceId: Int) {
                     verticalArrangement = Arrangement.spacedBy(8.dp),
                 ) {
                     Text(
-                        text = "📗 singleTop",
+                        text = "singleTop",
                         style = MaterialTheme.typography.titleMedium,
                     )
                     Text(
@@ -180,7 +180,7 @@ fun LaunchModeScreen(instanceId: Int) {
                     verticalArrangement = Arrangement.spacedBy(8.dp),
                 ) {
                     Text(
-                        text = "📙 singleTask",
+                        text = "singleTask",
                         style = MaterialTheme.typography.titleMedium,
                     )
                     Text(
