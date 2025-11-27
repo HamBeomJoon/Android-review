@@ -17,4 +17,5 @@ dependencies {
     implementation(project(":feature:activity"))
     implementation(project(":feature:intent"))
     implementation(project(":feature:context"))
+    implementation(project(":feature:parcelable"))
 }

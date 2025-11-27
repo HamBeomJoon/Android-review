@@ -10,4 +10,6 @@ sealed class AppDestination(
     data object IntentLearning : AppDestination("intent")
 
     data object ContextLearning : AppDestination("context/home")
+
+    data object ParcelableComparison : AppDestination("parcelable_comparison")
 }

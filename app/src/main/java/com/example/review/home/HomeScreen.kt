@@ -18,6 +18,7 @@ fun HomeScreen(
     onActivityClick: () -> Unit,
     onIntentClick: () -> Unit,
     onContextClick: () -> Unit,
+    onParcelableClick: () -> Unit,
 ) {
     Column(
         modifier =
@@ -49,6 +50,15 @@ fun HomeScreen(
             modifier = Modifier.fillMaxWidth(),
         ) {
             Text("context 학습")
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        Button(
+            onClick = onParcelableClick,
+            modifier = Modifier.fillMaxWidth(),
+        ) {
+            Text("parcelable 학습")
         }
     }
 }
